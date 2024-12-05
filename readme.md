@@ -13,13 +13,7 @@ A Python-based script to manage Outlook emails efficiently by removing duplicate
 
 ## Prerequisites
 
-1. **Python**:
-   - Requires Python 3.8 or higher.
-2. **Dependencies**:
-   - `win32com.client`: For interacting with the Outlook application.
-   - `tqdm`: For progress bars during email processing.
-   - `configparser`: For reading configuration files.
-3. **Microsoft Outlook**:
+1. **Microsoft Outlook**:
    - Must be installed and configured on your system.
 
 ---
@@ -33,12 +27,7 @@ A Python-based script to manage Outlook emails efficiently by removing duplicate
    ```
 
 2. **Install Dependencies**:
-   - Ensure the `requirements.txt` file includes the following:
-     ```
-     tqdm
-     pypiwin32
-     configparser
-     ```
+
    - Run the batch script `outlook_tool.bat`:
      ```cmd
      outlook_tool.bat
@@ -69,6 +58,7 @@ folder_name = your_folder
    ```
    This will:
    - Check/activate the virtual environment.
+   - Install Python
    - Install necessary dependencies.
    - Start the `main.py` script for email cleanup.
 
