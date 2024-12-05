@@ -4,10 +4,26 @@
 @echo ****************          start the python script                ************
 @echo *****************************************************************************
 
-rem Set the current directory as the script path
-set script_path=%cd%
+
+REM Ensure the current directory is set to the script's location
+cd /d "%~dp0"
 
 @echo off
+
+REM Check if Python is installed
+python --version >nul 2>&1
+if %ERRORLEVEL% neq 0 (
+   echo Python is not installed. Calling python_installer.bat...
+   call "python_installer.bat"
+   if %ERRORLEVEL% neq 0 (
+       echo Failed to install Python. Please check your installation process.
+       exit /b
+   )
+   echo Python has been successfully installed.
+) else (
+   echo Python is already installed.
+)
+
 REM Check if uv is installed by trying to get its version
 uv --version >nul 2>&1
 if %ERRORLEVEL% neq 0 (
@@ -60,12 +76,11 @@ for /f "delims=" %%d in (%requirements_file%) do (
 
 echo All dependencies from requirements.txt have been added successfully.
 
-
 uv sync
 
 echo Starting monitoring
 uv run main.py
 
-rem Pause before exiting, allowing the user to view any output
+REM Pause before exiting, allowing the user to view any output
 pause
 exit

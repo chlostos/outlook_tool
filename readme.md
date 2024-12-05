@@ -58,7 +58,7 @@ folder_name = your_folder
    ```
    This will:
    - Check/activate the virtual environment.
-   - Install Python
+   - Download and install Python
    - Install necessary dependencies.
    - Start the `main.py` script for email cleanup.
 
